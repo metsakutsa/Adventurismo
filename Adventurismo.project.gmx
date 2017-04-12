@@ -21,6 +21,7 @@
     <object>objects\obj_dialogue_controller</object>
     <object>objects\obj_yes_button</object>
     <object>objects\obj_no_button</object>
+    <object>objects\obj_tutor</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_room</room>

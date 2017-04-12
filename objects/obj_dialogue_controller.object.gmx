@@ -28,8 +28,10 @@
             <string>///Initialize variables
 
 //The current message displayed on the screen
+pos = 0;
 text = "";
 
+isTalking = true;
 </string>
           </argument>
         </arguments>
@@ -86,13 +88,9 @@ draw_text(x, y+40 , text);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>with obj_npc {
-    if intro {
-        obj_dialogue_controller.text = greeting;
-        intro = false;
-    } else {
-        obj_dialogue_controller.text = quest;
-    }
+            <string>if array_length_1d(obj_npc.talk)-1 &gt;= pos {
+    text = obj_npc.talk[pos];
+    pos ++;
 }
 </string>
           </argument>
