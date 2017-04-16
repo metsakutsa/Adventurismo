@@ -65,10 +65,24 @@ talk[0,7] = "Right, that is all now.";
 talk[0,8] = "Good luck and I will see you on the other end.";
 talk[0,9] = "Insert coin to begin!";
 
-talk[1,0] = "jou";
-
 option[0,0] = "Yes, here you go.";
 option[0,1] = "What, I do not possess any coins";
+
+
+
+//Branch 1
+talk[1,0] = "Thank you very much.";
+talk[1,1] = "Have a nice day!";
+
+option[1,0] = "Yes, here you go.";
+option[1,1] = "What, I do not possess any coins";
+
+//Branch 2
+talk[2,0] = "What a cheap bastard.";
+talk[2,1] = "Go on now, git!";
+
+option[2,0] = "Yes, here you go.";
+option[2,1] = "What, I do not possess any coins";
 </string>
           </argument>
         </arguments>

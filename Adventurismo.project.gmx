@@ -8,19 +8,16 @@
   <sprites name="sprites">
     <sprite>sprites\spr_npc</sprite>
     <sprite>sprites\spr_dialogue_box</sprite>
-    <sprite>sprites\spr_yes</sprite>
-    <sprite>sprites\spr_no</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <fonts name="fonts">
     <font>fonts\fnt_default</font>
+    <font>fonts\fnt_interaction</font>
   </fonts>
   <objects name="objects">
     <object>objects\obj_npc</object>
     <object>objects\obj_dialogue_controller</object>
-    <object>objects\obj_yes_button</object>
-    <object>objects\obj_no_button</object>
     <object>objects\obj_tutor</object>
   </objects>
   <rooms name="rooms">

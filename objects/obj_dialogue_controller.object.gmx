@@ -38,6 +38,70 @@ isTalking = true;
         </arguments>
       </action>
     </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Step
+
+//The length of the current dialogue branch
+dialogues = array_length_2d(obj_npc.talk, branch);
+
+//Length of current options
+options = array_length_2d(obj_npc.option, branch);
+
+if pos == dialogues{
+    choice = true;
+    
+    //Check if player makes a choice with keyboard
+    if keyboard_check_released(ord('1')){
+        if options &gt; 0{
+            branch = 1;
+            pos = 0;
+        }
+    }
+    
+    if keyboard_check_released(ord('2')){
+        if options &gt; 1{
+            branch = 2;
+            pos = 0;        
+        }
+    }
+    
+    if keyboard_check_released(ord('3')){
+        if options &gt; 2{
+            branch = 3;
+            pos = 0;          
+        }
+    }
+    
+    if keyboard_check_released(ord('4')){
+        if options &gt; 3{
+            branch = 4;
+            pos = 0;        
+        }
+    }
+    
+} else choice = false;
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -56,7 +120,6 @@ isTalking = true;
           <argument>
             <kind>1</kind>
             <string>///Draw the text on the screen
-
 draw_self();
 
 draw_set_font(fnt_default);
@@ -64,12 +127,19 @@ draw_set_halign(fa_center);
 draw_set_valign(fa_top);
 draw_set_colour(c_white);
 
-draw_text_ext(x, y+40 , text, font_get_size(fnt_default)+4, room_width - 20);
+draw_text_ext(x, y+40, text, font_get_size(fnt_default)+4, room_width - 20);
 
-///Responses
+///Draw the interactive responses on the screen when the text has reached the end
+draw_set_color(c_yellow);
+draw_set_font(fnt_interaction);
+draw_set_halign(fa_left);
 
-len = array_length_2d(obj_npc.option, branch);
-draw_text_ext(x, y+40 , text, font_get_size(fnt_default)+4, room_width - 20);
+if choice{
+    for(var i = 0; i &lt; options; i++){
+        draw_text_ext(40, 330 + i * font_get_size(fnt_interaction)+2, string(i+1) + ". " + string(obj_npc.option[branch,i]), font_get_size(fnt_default)+4, room_width - 20);
+    }
+}
+
 </string>
           </argument>
         </arguments>
