@@ -68,30 +68,34 @@ if pos == dialogues{
     
     //Check if player makes a choice with keyboard
     if keyboard_check_released(ord('1')){
-        if options &gt; 0{
+        if instance_exists(obj_npc.option[branch,0]) and obj_npc.option[branch,0] != "" {
             branch = 1;
             pos = 0;
+            scr_dialogue_draw();
         }
     }
     
     if keyboard_check_released(ord('2')){
-        if options &gt; 1{
+        if instance_exists(obj_npc.option[branch,1]) and obj_npc.option[branch,1] != "" {
             branch = 2;
-            pos = 0;        
+            pos = 0;
+            scr_dialogue_draw();
         }
     }
     
     if keyboard_check_released(ord('3')){
-        if options &gt; 2{
+        if instance_exists(obj_npc.option[branch,2]) and obj_npc.option[branch,2] != "" {
             branch = 3;
-            pos = 0;          
+            pos = 0;
+            scr_dialogue_draw();   
         }
     }
     
     if keyboard_check_released(ord('4')){
-        if options &gt; 3{
+        if instance_exists(obj_npc.option[branch,3]) and obj_npc.option[branch,3] != "" {
             branch = 4;
-            pos = 0;        
+            pos = 0;
+            scr_dialogue_draw();
         }
     }
     
@@ -127,7 +131,7 @@ draw_set_halign(fa_center);
 draw_set_valign(fa_top);
 draw_set_colour(c_white);
 
-draw_text_ext(x, y+40, text, font_get_size(fnt_default)+4, room_width - 20);
+draw_text_ext(x, y+20, text, font_get_size(fnt_default)+4, room_width - 20);
 
 ///Draw the interactive responses on the screen when the text has reached the end
 draw_set_color(c_yellow);
@@ -136,7 +140,9 @@ draw_set_halign(fa_left);
 
 if choice{
     for(var i = 0; i &lt; options; i++){
-        draw_text_ext(40, 330 + i * font_get_size(fnt_interaction)+2, string(i+1) + ". " + string(obj_npc.option[branch,i]), font_get_size(fnt_default)+4, room_width - 20);
+        if instance_exists(obj_npc.option[branch,i]) and obj_npc.option[branch,i] != "" {
+            draw_text_ext(40, 310 + i * font_get_size(fnt_interaction)+2, string(i+1) + ". " + string(obj_npc.option[branch,i]), font_get_size(fnt_default)+4, room_width - 20);
+        }
     }
 }
 
@@ -162,12 +168,7 @@ if choice{
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if array_length_2d(obj_npc.talk, branch)-1 &gt;= pos {
-    text = obj_npc.talk[branch,pos];
-    pos ++;
-}
-
-
+            <string>scr_dialogue_draw();
 </string>
           </argument>
         </arguments>
