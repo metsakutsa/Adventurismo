@@ -30,6 +30,7 @@
 name = "Tutor";
 init = true;
 
+
 </string>
           </argument>
         </arguments>
@@ -67,6 +68,8 @@ talk[0,9] = "Insert coin to begin!";
 
 option[0,0] = "Yes, here you go.";
 option[0,1] = "What, I do not possess any coins";
+option[0,2] = "";
+option[0,3] = "";
 
 
 
@@ -85,6 +88,8 @@ talk[2,1] = "Go on now, git!";
 
 option[2,0] = "";
 option[2,1] = "";
+option[2,2] = "";
+option[2,3] = "";
 </string>
           </argument>
         </arguments>
